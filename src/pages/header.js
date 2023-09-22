@@ -35,14 +35,15 @@ function Header() {
     backgroundColor: '#ffffff',
     borderTop: '1px solid #ccc',
     position: 'absolute',
-    top: '65px', // Adjusted top position to align with the header
-    right: '0', // Aligned to the right
-    width: '100%', // Full width
-    boxSizing: 'border-box' // Ensure padding and border don't exceed the width
+    top: '65px',
+    right: '0',
+    width: '100%',
+    boxSizing: 'border-box'
   };
 
   const menuIconStyle = {
     cursor: 'pointer',
+    marginRight: '20px', // Adjusted margin to push menu icon away from the logo
   };
 
   return (
