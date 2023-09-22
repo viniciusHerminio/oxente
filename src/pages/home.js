@@ -29,33 +29,23 @@ function Home() {
     <img src={mediquoBanner} className='imagemCarrossel' alt='mediquoBanner' onDragStart={handleDragStart} role="presentation" />,
   ];
 
-  if (isMobile) {
-    return (
-      <div className="home-container">
-        <div className="mt-5">
-          <h2>Nossos planos são feitos<br /> sob medida para você!</h2>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className="home-container">
-      <AliceCarousel
-        autoPlay={true}
-        autoPlayControls={false}
-        autoPlayInterval={5000}
-        infinite={true}
-        animationDuration={400}
-        swipeDelta={500}
-        disableButtonsControls
-        disableDotsControls
-        mouseTracking
-        items={items}
-      />
-      <div className="mt-5">
+    <div className={`home-container ${isMobile ? 'mobile' : ''}`}>
+      {isMobile ? (
         <h2>Nossos planos são feitos<br /> sob medida para você!</h2>
-      </div>
+      ) : (
+        <><AliceCarousel
+            autoPlay={true}
+            autoPlayControls={false}
+            autoPlayInterval={5000}
+            infinite={true}
+            animationDuration={400}
+            swipeDelta={500}
+            disableButtonsControls
+            disableDotsControls
+            mouseTracking
+            items={items} /><h2>Nossos planos são feitos<br /> sob medida para você!</h2></>
+      )}
     </div>
   );
 }
