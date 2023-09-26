@@ -86,9 +86,9 @@ function Home() {
     },
   ];
 
-  const renderBeneficios = (beneficios) => {
+  const renderBeneficios = (beneficios, index) => {
     return (
-      <ul className="beneficios-list">
+      <ul className={`beneficios-list${index}`}>
         {beneficios.map((beneficio, index) => (
           <li className='beneficio-item' key={index}>{beneficio}</li>
         ))}
@@ -105,7 +105,7 @@ function Home() {
           <h5 className='plano-descricao'>{plano.descricao}</h5>
           <p>{plano.condicao}</p>
           <hr />
-          {renderBeneficios(plano.beneficios)}
+          {renderBeneficios(plano.beneficios, index)}
           <p className="price">{plano.price}</p>
           <button className="button-card">Assine já</button>
         </div>
@@ -139,6 +139,9 @@ function Home() {
           <h2 className='titleDesk'>Nossos planos são feitos<br /> sob medida para você!</h2>
           <div className="planos-container">
             {renderPlanosCards()}
+          </div>
+          <div>
+            <h2>Benefícios</h2>
           </div>
         </>
       )}

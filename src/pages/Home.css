@@ -58,8 +58,32 @@ body {
     color: #555;
     margin-bottom: 10px;
   }
+
+  .plano-card .beneficios-list0 {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 85px;
+    color: #ef6420;
+    text-align: left; /* Alinhar à esquerda */
+  }
   
-  .plano-card .beneficios-list {
+  .plano-card .beneficios-list1 {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 60px;
+    color: #ef6420;
+    text-align: left; /* Alinhar à esquerda */
+  }
+
+  .plano-card .beneficios-list2 {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 35px;
+    color: #ef6420;
+    text-align: left; /* Alinhar à esquerda */
+  }
+
+  .plano-card .beneficios-list3 {
     list-style: disc;
     margin-left: 20px;
     margin-bottom: 10px;
@@ -139,15 +163,12 @@ body {
   .plano-descricao {
     color: orangered;
   }
+
   
   /* Novo CSS adicionado */
   
   .beneficios-list li {
     color: orange;
-  }
-  
-  .beneficios-list {
-    margin-bottom: 10px;
   }
   
   .plano-card .price,
