@@ -11,7 +11,7 @@ function Home() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // Assuming 768px is the breakpoint for mobile
+      setIsMobile(window.innerWidth < 768);
     };
 
     handleResize();
@@ -31,28 +31,84 @@ function Home() {
 
   const planos = [
     {
-      nome: 'Plano Bronze',
-      descricao: 'Plano básico com cobertura essencial.',
+      nome: 'OXENTE',
+      descricao: '100% Fibra Óptica',
+      value: '200 MEGA',
+      condicao: 'contrate 100M, receba 200M',
+      beneficios: [
+        'Wifi - Turbo',
+        'Oxente.Tv',
+        'valor já com desconto por fidelização e pagamento até o vencimento.'
+      ],
+      price: 'R$ 69,90/mes',
     },
     {
-      nome: 'Plano Prata',
-      descricao: 'Cobertura intermediária para suas necessidades de saúde.',
+      nome: 'OXENTE',
+      descricao: '100% Fibra Óptica',
+      value: '400 MEGA',
+      condicao: 'contrate 200M, receba 400M',
+      beneficios: [
+        'Wifi - Turbo',
+        'Deezer Premium',
+        'Oxente.Tv',
+        'valor já com desconto por fidelização e pagamento até o vencimento.'
+      ],
+      price: 'R$ 79,90/mes',
     },
     {
-      nome: 'Plano Ouro',
-      descricao: 'Ampla cobertura para cuidar da sua saúde e bem-estar.',
+      nome: 'OXENTE',
+      descricao: '100% Fibra Óptica',
+      value: '500 MEGA',
+      condicao: 'contrate 200M, receba 500M',
+      beneficios: [
+        'Wifi - Turbo',
+        'Deezer Premium',
+        'Clinica digital Mediquo',
+        'Oxente.Tv',
+        'valor já com desconto por fidelização e pagamento até o vencimento.'
+      ],
+      price: 'R$ 89,90/mes',
     },
     {
-      nome: 'Plano Diamante',
-      descricao: 'O plano premium com cobertura completa e exclusiva.',
+      nome: 'OXENTE',
+      descricao: '100% Fibra Óptica',
+      value: '600 MEGA',
+      condicao: 'contrate 300M, receba 600M',
+      beneficios: [
+        'Wifi - Turbo',
+        'Deezer Premium',
+        'Clinica digital Mediquo',
+        'Streaming vídeo Looke',
+        'Oxente.Tv',
+        'valor já com desconto por fidelização e pagamento até o vencimento.'
+      ],
+      price: 'R$ 99,90/mes',
     },
   ];
 
+  const renderBeneficios = (beneficios) => {
+    return (
+      <ul className="beneficios-list">
+        {beneficios.map((beneficio, index) => (
+          <li className='beneficio-item' key={index}>{beneficio}</li>
+        ))}
+      </ul>
+    );
+  };
+
   const renderPlanosCards = () => {
     return planos.map((plano, index) => (
-      <div key={index} className="plano-card">
-        <h3>{plano.nome}</h3>
-        <p>{plano.descricao}</p>
+      <div key={index} className="card-plano">
+        <div className="plano-card">
+          <h3 className='nome-card'>{plano.nome}</h3>
+          <h1 className='plano-value'>{plano.value}</h1>
+          <h5 className='plano-descricao'>{plano.descricao}</h5>
+          <p>{plano.condicao}</p>
+          <hr />
+          {renderBeneficios(plano.beneficios)}
+          <p className="price">{plano.price}</p>
+          <button className="button-card">Assine já</button>
+        </div>
       </div>
     ));
   };
@@ -60,14 +116,19 @@ function Home() {
   return (
     <div className={`home-container ${isMobile ? 'mobile' : ''}`}>
       {isMobile ? (
-        <h2 className='titleCell'>Nossos planos são feitos<br /> sob medida para você!</h2>
+        <>
+          <h2 className='titleCell'>Nossos planos são feitos<br /> sob medida para você!</h2>
+          <div className="planos-container">
+            {renderPlanosCards()}
+          </div>
+        </>
       ) : (
         <>
           <AliceCarousel
-            autoPlay={true}
+            autoPlay
             autoPlayControls={false}
             autoPlayInterval={5000}
-            infinite={true}
+            infinite
             animationDuration={400}
             swipeDelta={500}
             disableButtonsControls
@@ -75,7 +136,7 @@ function Home() {
             mouseTracking
             items={items}
           />
-          <h2>Nossos planos são feitos<br /> sob medida para você!</h2>
+          <h2 className='titleDesk'>Nossos planos são feitos<br /> sob medida para você!</h2>
           <div className="planos-container">
             {renderPlanosCards()}
           </div>
