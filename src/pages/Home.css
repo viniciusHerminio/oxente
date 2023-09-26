@@ -17,3 +17,22 @@ h2 {
     color: orangered;
     font-family: 'Fraset', sans-serif;
 }
+
+.plano-card {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plano-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .plano-card p {
+    font-size: 1rem;
+    color: #666;
+  }

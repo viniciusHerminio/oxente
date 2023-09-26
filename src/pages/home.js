@@ -29,12 +29,41 @@ function Home() {
     <img src={mediquoBanner} className='imagemCarrossel' alt='mediquoBanner' onDragStart={handleDragStart} role="presentation" />,
   ];
 
+  const planos = [
+    {
+      nome: 'Plano Bronze',
+      descricao: 'Plano básico com cobertura essencial.',
+    },
+    {
+      nome: 'Plano Prata',
+      descricao: 'Cobertura intermediária para suas necessidades de saúde.',
+    },
+    {
+      nome: 'Plano Ouro',
+      descricao: 'Ampla cobertura para cuidar da sua saúde e bem-estar.',
+    },
+    {
+      nome: 'Plano Diamante',
+      descricao: 'O plano premium com cobertura completa e exclusiva.',
+    },
+  ];
+
+  const renderPlanosCards = () => {
+    return planos.map((plano, index) => (
+      <div key={index} className="plano-card">
+        <h3>{plano.nome}</h3>
+        <p>{plano.descricao}</p>
+      </div>
+    ));
+  };
+
   return (
     <div className={`home-container ${isMobile ? 'mobile' : ''}`}>
       {isMobile ? (
-        <h2>Nossos planos são feitos<br /> sob medida para você!</h2>
+        <h2 className='titleCell'>Nossos planos são feitos<br /> sob medida para você!</h2>
       ) : (
-        <><AliceCarousel
+        <>
+          <AliceCarousel
             autoPlay={true}
             autoPlayControls={false}
             autoPlayInterval={5000}
@@ -44,7 +73,13 @@ function Home() {
             disableButtonsControls
             disableDotsControls
             mouseTracking
-            items={items} /><h2>Nossos planos são feitos<br /> sob medida para você!</h2></>
+            items={items}
+          />
+          <h2>Nossos planos são feitos<br /> sob medida para você!</h2>
+          <div className="planos-container">
+            {renderPlanosCards()}
+          </div>
+        </>
       )}
     </div>
   );
